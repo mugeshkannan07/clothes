@@ -3,7 +3,8 @@ import ClothesModel from "../models/allClothSchema.js";
 import upload from "../middleware/ClothsMulter.js";
 
 const router = express.Router();
-const IMAGE_URL = "http://localhost:5000"; 
+const IMAGE_URL = process.env.BASE_URL || "http://localhost:5000";
+
 
 //  Route: Get all clothes
 router.get("/", async (req, res) => {

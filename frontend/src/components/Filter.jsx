@@ -16,7 +16,7 @@ const Filter = () => {
 
   const fetchClothesCategory = async (category) => {
     try {
-      const response = await axios.get(`https://clothes-2.onrender.com/api/clothes/category/${category}`);
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/clothes/category/${category}`);
       setArrivesData(response.data);
     } catch (error) {
       console.error(`Error fetching ${category} clothes:`, error);

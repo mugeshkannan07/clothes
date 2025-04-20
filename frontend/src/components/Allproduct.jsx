@@ -10,7 +10,7 @@ export const Allproduct = () => {
   useEffect(() => {
     const fetchArrives = async () => {
       try {
-        const response = await axios.get("https://clothes-2.onrender.com/api/clothes/category/arrives");
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/clothes/category/arrives`);
         setArrivesData(response.data);
       } catch (error) {
         console.error("Error fetching arrives data:", error);

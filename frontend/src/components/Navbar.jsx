@@ -67,7 +67,7 @@ import { ProductContext } from "../context/ProductContext.jsx";
             {loggedIn ? (
             <div className="profile-dropdown">
               <div className="profile-info" tabIndex={0}>
-              <img src={image ? `http://localhost:5000${image}` : "/default-avatar.png"} alt="Profile" className="profile-img"/>
+              <img src={image ? `https://clothes-2.onrender.com${image}` : "/default-avatar.png"} alt="Profile" className="profile-img"/>
               <span>{name}</span>
               </div>
               <div className="dropdown-menu">

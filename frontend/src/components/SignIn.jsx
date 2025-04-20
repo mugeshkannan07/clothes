@@ -46,7 +46,7 @@ const handleSubmit = async (e) => {
   if (image) data.append("image", image);
 
   try {
-    const response = await axios.post("http://localhost:5000/api/auth/register", data);
+    const response = await axios.post("https://clothes-2.onrender.com/api/auth/register", data);
     localStorage.setItem("token", response.data.token);
     localStorage.setItem("userId", response.data.userId);
     localStorage.setItem("name", response.data.name);

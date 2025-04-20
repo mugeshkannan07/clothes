@@ -25,7 +25,7 @@ export const ProductProvider = ({children}) => {
     const fetchCart = async () => {
       if (!UserId) return;
       try {
-        const response = await axios.get(`http://localhost:5000/api/cart/user/${UserId}`);
+        const response = await axios.get(`https://clothes-2.onrender.com/api/cart/user/${UserId}`);
         setCart(response.data.cart);
       } catch (error) {
         console.error("Error fetching cart:", error);
@@ -49,7 +49,7 @@ export const ProductProvider = ({children}) => {
     Quantity: 1,
   };
   try {
-    const response = await axios.post("http://localhost:5000/api/cart/add", newCart);
+    const response = await axios.post("https://clothes-2.onrender.com/api/cart/add", newCart);
     const updatedItem = response.data.cart;
 
     setCart((prevCart) => {
@@ -70,7 +70,7 @@ export const ProductProvider = ({children}) => {
    // fetch data //
    const fetchClothesCategory = async (category) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/clothes/category/${category}`);
+      const response = await axios.get(`https://clothes-2.onrender.com/api/clothes/category/${category}`);
       setArrivesData(response.data);
     } catch (error) {
       console.error(`Error fetching ${category} clothes:`, error);

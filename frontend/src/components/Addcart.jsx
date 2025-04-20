@@ -30,7 +30,7 @@ useEffect(() => {
 // //Remove cart //
   const removeFromCart = async (id) => {
     try {
-        await axios.delete(`http://localhost:5000/api/cart/remove/${id}`);
+        await axios.delete(`https://clothes-2.onrender.com/api/cart/remove/${id}`);
         setCart((prev) => prev.filter((item) => item._id !== id));     
     } catch (error) {
         alert(error.message || "Error removing item");

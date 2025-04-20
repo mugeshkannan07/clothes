@@ -1,0 +1,40 @@
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url"; 
+import { dirname } from "path";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/userRoutes.js";
+import cartRoutes from "./routes/cartRoutes.js";
+import allClothesRoutes from "./routes/allClothesRoutes.js";
+import fs from "fs";
+
+dotenv.config();
+connectDB();
+
+const JWT_SECRET = process.env.JWT_SECRET;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const app = express();
+app.use(cors({ origin: "*" }));
+app.use(express.json());
+
+// "uploads" folder 
+const uploadsDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadsDir)) {
+  console.log("Warning: 'uploads/' directory does not exist.");
+}
+
+app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
+
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+// API Routes
+app.use("/api/clothes", allClothesRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/cart", cartRoutes);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

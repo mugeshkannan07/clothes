@@ -1,0 +1,9 @@
+.fav{
+    display: flex;
+    justify-content: space-evenly;
+}
+h1{
+    color: black;
+    text-align: center;
+}
+

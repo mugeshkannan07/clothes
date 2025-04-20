@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { Link } from 'react-router-dom';
-import '../css/ProductDetails.css';
+import '../css/productDetails.css';
 import { FaHeart, FaStar } from 'react-icons/fa';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { ProductContext } from '../context/ProductContext.jsx';

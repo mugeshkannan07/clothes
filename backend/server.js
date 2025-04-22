@@ -18,6 +18,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // "uploads" folder 
 const uploadsDir = path.join(__dirname, "uploads");
@@ -46,3 +48,4 @@ app.use("/api/cart", cartRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+

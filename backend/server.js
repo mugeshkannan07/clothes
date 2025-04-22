@@ -14,27 +14,20 @@ dotenv.config();
 connectDB();
 
 const JWT_SECRET = process.env.JWT_SECRET;
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-app.use(cors({ origin: "*" }));
-app.use(express.json());
 
 // "uploads" folder 
 const uploadsDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadsDir)) {
   console.log("Warning: 'uploads/' directory does not exist.");
 }
-
 app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
 
 // Frontend and backend connect 
-const allowedOrigins = [
-  "http://localhost:5173",                        
-  "https://your-frontend-url.onrender.com"      
-];
+const allowedOrigins = ["https://elite-wear.onrender.com"];
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {

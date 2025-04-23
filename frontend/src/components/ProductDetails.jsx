@@ -21,9 +21,9 @@ return (
         )}
 
         <Link to="/product/:id" onClick={() => setId(pro._id)}>
-            <img src={pro.front} alt={pro.name}
-            onMouseOver={(e) => (e.currentTarget.src = pro.back)}
-            onMouseOut={(e) => (e.currentTarget.src = pro.front)}/>
+        <img src={`${import.meta.env.VITE_BACKEND_URL}/uploads/${pro.front}`} alt={pro.name}
+        onMouseOver={(e) => (e.currentTarget.src = `${import.meta.env.VITE_BACKEND_URL}/uploads/${pro.back}`)}
+        onMouseOut={(e) => (e.currentTarget.src = `${import.meta.env.VITE_BACKEND_URL}/uploads/${pro.front}`)}/>
         </Link>
          
         <ul>

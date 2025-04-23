@@ -99,8 +99,8 @@ router.get("/", async (req, res) => {
 
     const updatedClothes = clothes.map(item => ({
       ...item._doc,
-      front: `${IMAGE_BASE_URL}/uploads/${item.front}`,
-      back: `${IMAGE_BASE_URL}/uploads/${item.back}`
+      front: `${IMAGE_BASE_URL}/${item.front}`,
+      back: `${IMAGE_BASE_URL}/${item.back}`
     }));
 
     res.json(updatedClothes);
@@ -121,8 +121,8 @@ router.get("/category/:category", async (req, res) => {
 
     const updatedClothes = clothes.map(item => ({
       ...item._doc,
-      front: `${IMAGE_BASE_URL}/uploads/${item.front}`,
-      back: `${IMAGE_BASE_URL}/uploads/${item.back}`
+      front: `${IMAGE_BASE_URL}/${item.front}`,
+      back: `${IMAGE_BASE_URL}/${item.back}`
     }));
 
     res.json(updatedClothes);
@@ -166,8 +166,8 @@ router.get("/allproduct", async (req, res) => {
     const data = await ClothesModel.find();
     const updated = data.map(item => ({
       ...item._doc,
-      front: `${IMAGE_BASE_URL}/uploads/${item.front}`,
-      back: `${IMAGE_BASE_URL}/uploads/${item.back}`
+      front: `${IMAGE_BASE_URL}/${item.front}`,
+      back: `${IMAGE_BASE_URL}/${item.back}`
     }));
     res.json(updated);
   } catch (error) {

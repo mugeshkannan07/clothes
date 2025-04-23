@@ -2,8 +2,8 @@ import React from 'react'
 import '../css/home.css'
 import Carousel from 'react-bootstrap/Carousel';
 import { Allproduct } from './Allproduct';
-import hero1 from '../assets/collection.png'
-import hero2 from '../assets/style.png'
+import hero1 from '../assets/collection.jpg'
+import hero2 from '../assets/style.jpg'
 import hero3 from '../assets/Clothing_retro.jpg'
 import Brand from './Brand';
 import About from './About';

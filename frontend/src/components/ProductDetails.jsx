@@ -59,6 +59,9 @@ export const ProductDetails = ({ pro }) => {
 
   const frontImage = formatImageUrl(pro.front);
   const backImage = formatImageUrl(pro.back);
+  
+  console.log("front",frontImage)
+  console.log("back",backImage)
 
   return (
     <div className="product_items">
@@ -75,11 +78,9 @@ export const ProductDetails = ({ pro }) => {
       )}
 
       <Link to={`/product/${pro._id}`} onClick={() => setId(pro._id)}>
-        <img
-          src={frontImage}
-          alt={pro.name}
-          onMouseOver={(e) => (e.currentTarget.src = backImage)}
-          onMouseOut={(e) => (e.currentTarget.src = frontImage)}
+        <img  src={frontImage} alt={pro.name}
+        onMouseOver={(e) => (e.currentTarget.src = backImage)}
+        onMouseOut={(e) => (e.currentTarget.src = frontImage)}
         />
       </Link>
 

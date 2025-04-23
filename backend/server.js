@@ -41,6 +41,15 @@ app.use(cors({
   credentials: true
 }));
 
+
+// Serve frontend
+app.use(express.static(path.join(path.resolve(), "frontend/dist"))); // if using Vite
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("frontend", "dist", "index.html"));
+});
+
+
 // API Routes
 app.use("/api/clothes", allClothesRoutes);
 app.use("/api/auth", authRoutes);

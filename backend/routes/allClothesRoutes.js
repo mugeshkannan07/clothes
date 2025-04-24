@@ -160,6 +160,10 @@ router.post("/add",upload.fields([{ name: "front" }, { name: "back" }]),
   }
 );
 
+app.get('/shop', (req, res) => {
+  res.send('Welcome to the shop!');
+});
+
 // Get all products
 router.get("/allproduct", async (req, res) => {
   try {

@@ -46,8 +46,8 @@ app.use("/api/clothes", allClothesRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
 
-// Frontend Routes
-const frontendPath = path.join(__dirname, "client", "dist"); 
+// Serve frontend
+const frontendPath = path.join(__dirname, "../frontend/dist");
 app.use(express.static(frontendPath));
 
 app.get("*", (req, res) => {

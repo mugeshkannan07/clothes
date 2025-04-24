@@ -51,18 +51,14 @@ import { ProductContext } from '../context/ProductContext.jsx';
 export const ProductDetails = ({ pro }) => {
   const { setId, favorites, setFavorites, addToCart } = useContext(ProductContext);
 
-  // Function to handle image URLs properly
+  // image URL
   const formatImageUrl = (path) => {
     if (path.startsWith("http")) return path;
     return `${import.meta.env.VITE_BACKEND_URL}/${path}`;
   };
-
   const frontImage = formatImageUrl(pro.front);
   const backImage = formatImageUrl(pro.back);
   
-  console.log("front",frontImage)
-  console.log("back",backImage)
-
   return (
     <div className="product_items">
       <p className='rating'><FaStar /> {pro.rating}</p>

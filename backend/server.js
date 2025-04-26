@@ -36,12 +36,18 @@ app.use("/api/cart", cartRoutes);
 
 // Serve frontend 
 const frontendPath = path.join(__dirname, "../frontend/dist");
-app.use(express.static(frontendPath));
+if (fs.existsSync(frontendPath)) {
+  app.use(express.static(frontendPath));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
-});
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"));
+  });
+} else {
+  console.log("Warning: Frontend build not found. Make sure you built the frontend.");
+}
 
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+
+

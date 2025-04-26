@@ -29,12 +29,7 @@ return (
         onMouseOut={(e) => (e.currentTarget.src = `${import.meta.env.VITE_BACKEND_URL}/${pro.front}`)}/>
         </Link> */}
 
-<Link>
-<img
-        src={`${backendURL}/${pro.front}`}
-        alt={pro.name}
-      />
-</Link>
+<Link><img src={`${backendURL}${pro.front}`} alt={pro.name} /> </Link>
        
 
             <ul>

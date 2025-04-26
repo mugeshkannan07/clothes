@@ -31,7 +31,7 @@ return (
 
 <Link>
 <img
-        src={`${backendURL}/uploads/${pro.front}`}
+        src={`${backendURL}/${pro.front}`}
         alt={pro.name}
       />
 </Link>

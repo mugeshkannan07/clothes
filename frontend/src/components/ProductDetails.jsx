@@ -31,9 +31,8 @@ return (
 
 <Link>
 <img
-        src={`${backendURL}/uploads/${product.image}`}
-        alt={product.name}
-        style={styles.image}
+        src={`${backendURL}/uploads/${pro.front}`}
+        alt={pro.name}
       />
 </Link>
        

@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom'; // Only Routes and Route, NOT BrowserRouter
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Home } from './components/Home.jsx';
 import { Allproduct } from './components/Allproduct.jsx';
@@ -20,20 +20,20 @@ const App = () => {
   return (
     <ProductProvider>
       <Header />
-        <Routes>
-          <Route path="/" element={<Home /> } />
-          <Route path="/product/arrives" element={<Allproduct /> } /> 
-          <Route path="/product/:id" element={<Showdetails /> } />
-          <Route path="/brand" element={<Brand /> } />
-          <Route path="/addcart" element={<Addcart /> } />
-          <Route path="/categories" element={<Categories /> } />
-          <Route path="/favorites" element={<Favorite /> } />
-          <Route path="/shop" element={<Filter /> } />
-          <Route path="/signin" element={<SignIn /> } />
-          <Route path="/login" element={<Login /> } />
-          <Route path="*" element={<Notfound /> } />
-        </Routes>
-        <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/arrives" element={<Allproduct />} /> 
+        <Route path="/product/:id" element={<Showdetails />} />
+        <Route path="/brand" element={<Brand />} />
+        <Route path="/addcart" element={<Addcart />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/favorites" element={<Favorite />} />
+        <Route path="/shop" element={<Filter />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Notfound />} />
+      </Routes>
+      <Footer />
     </ProductProvider>
   );
 };

@@ -7,7 +7,9 @@ import { ProductContext } from '../context/ProductContext.jsx';
 
 export const ProductDetails = ({ pro }) => {
     const { setId, favorites, setFavorites, addToCart } = useContext(ProductContext); 
-    console.log(`thee:${import.meta.env.VITE_BACKEND_URL}/${pro.front}`);
+    // console.log(`thee:${import.meta.env.VITE_BACKEND_URL}/${pro.front}`);
+    
+const backendURL = "https://elite-wear.onrender.com";
 
 return (
         <div className="product_items">
@@ -21,11 +23,20 @@ return (
         </button>
         )}
        
-        <Link to="/product/:id" onClick={() => setId(pro._id)}>
+        {/* <Link to="/product/:id" onClick={() => setId(pro._id)}>
         <img src={`${import.meta.env.VITE_BACKEND_URL}/${pro.front}`} alt={pro.name}
         onMouseOver={(e) => (e.currentTarget.src = `${import.meta.env.VITE_BACKEND_URL}/${pro.back}`)}
         onMouseOut={(e) => (e.currentTarget.src = `${import.meta.env.VITE_BACKEND_URL}/${pro.front}`)}/>
-        </Link>
+        </Link> */}
+
+<Link>
+<img
+        src={`${backendURL}/uploads/${product.image}`}
+        alt={product.name}
+        style={styles.image}
+      />
+</Link>
+       
 
             <ul>
             <li><h3>{pro.name}</h3></li>

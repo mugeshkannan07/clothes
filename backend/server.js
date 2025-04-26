@@ -1,3 +1,57 @@
+// import express from "express";
+// import cors from "cors";
+// import dotenv from "dotenv";
+// import path from "path";
+// import { fileURLToPath } from "url";
+// import { dirname } from "path";
+// import connectDB from "./config/db.js";
+// import authRoutes from "./routes/userRoutes.js";
+// import cartRoutes from "./routes/cartRoutes.js";
+// import allClothesRoutes from "./routes/allClothesRoutes.js";
+// import fs from "fs";
+
+// dotenv.config();
+// connectDB();
+
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+// const app = express();
+
+// // Middleware
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(cors());
+
+// // Static folder for uploads
+// const uploadsDir = path.join(__dirname, "uploads");
+// if (!fs.existsSync(uploadsDir)) {
+//   console.log("Warning: 'uploads/' directory does not exist.");
+// }
+// app.use("/uploads", express.static(uploadsDir));
+
+// // API Routes
+// app.use("/api/clothes", allClothesRoutes);
+// app.use("/api/auth", authRoutes);
+// app.use("/api/cart", cartRoutes);
+
+// // Serve frontend 
+// const frontendPath = path.join(__dirname, "../frontend/dist");
+// if (fs.existsSync(frontendPath)) {
+//   app.use(express.static(frontendPath));
+
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(frontendPath, "index.html"));
+//   });
+// } else {
+//   console.log("Warning: Frontend build not found. Make sure you built the frontend.");
+// }
+
+// // Start server
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+
+
+///////////
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -15,26 +69,33 @@ connectDB();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 const app = express();
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
+// CORRECT CORS USAGE
+app.use(cors({
+  origin: "*",    // you can specify your frontend domain also instead of "*"
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 
 // Static folder for uploads
 const uploadsDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadsDir)) {
-  console.log("Warning: 'uploads/' directory does not exist.");
+  console.warn("Warning: 'uploads/' directory does not exist.");
 }
-app.use("/uploads", express.static(uploadsDir));
+app.use("/uploads", express.static(uploadsDir)); // VERY important
 
 // API Routes
 app.use("/api/clothes", allClothesRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
 
-// Serve frontend 
+// Serve frontend (React build)
 const frontendPath = path.join(__dirname, "../frontend/dist");
 if (fs.existsSync(frontendPath)) {
   app.use(express.static(frontendPath));
@@ -43,11 +104,9 @@ if (fs.existsSync(frontendPath)) {
     res.sendFile(path.join(frontendPath, "index.html"));
   });
 } else {
-  console.log("Warning: Frontend build not found. Make sure you built the frontend.");
+  console.warn("Warning: Frontend build not found. Make sure you built the frontend.");
 }
 
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
-
-

@@ -94,8 +94,7 @@
 // //     </div>
 // //   );
 // // };
-/////////////////
-import React, { useContext } from "react";
+/////////////////import React, { useContext } from "react";
 import { Link } from 'react-router-dom';
 import '../css/productDetails.css';
 import { FaHeart, FaStar } from 'react-icons/fa';
@@ -105,13 +104,15 @@ import { ProductContext } from '../context/ProductContext.jsx';
 export const ProductDetails = ({ pro }) => {
   const { setId, favorites, setFavorites, addToCart } = useContext(ProductContext);
 
-  // Define the backend base URL
-  const backendURL = "https://elite-wear.onrender.com";
+  // Backend URL from environment OR fallback
+  const backendURL = import.meta.env.VITE_BACKEND_URL || "https://elite-wear.onrender.com";
 
-  // Helper function to format image URL
+  // Proper Image URL formatting
   const formatImageUrl = (path) => {
-    if (path.startsWith("http")) return path;  // If already a full URL, return it
-    return `${backendURL}/${path}`;  // Otherwise, construct the full URL
+    if (!path) return ""; // No path provided
+    if (path.startsWith("http")) return path;
+    if (path.startsWith("/")) return `${backendURL}${path}`;
+    return `${backendURL}/${path}`; // missing slash protection
   };
 
   const frontImage = formatImageUrl(pro.front);
@@ -119,12 +120,12 @@ export const ProductDetails = ({ pro }) => {
 
   return (
     <div className="product_items">
-      <p className='rating'>
+      <p className="rating">
         <FaStar /> {pro.rating}
       </p>
 
-      {favorites.some((item) => item.id === pro.id) ? (
-        <button className="heart" onClick={() => setFavorites(favorites.filter((e) => e.id !== pro.id))}>
+      {favorites.some(item => item.id === pro.id) ? (
+        <button className="heart" onClick={() => setFavorites(favorites.filter(e => e.id !== pro.id))}>
           <FaHeart style={{ color: 'red' }} />
         </button>
       ) : (
@@ -144,8 +145,8 @@ export const ProductDetails = ({ pro }) => {
 
       <ul>
         <li><h3>{pro.name}</h3></li>
-        <li><h5>M.R.P : ₹{pro.Oldprice}</h5></li>
-        <li><h4>Price: <span className='price'>₹{pro.price}.00</span></h4></li>
+        <li><h5>M.R.P: ₹{pro.Oldprice}</h5></li>
+        <li><h4>Price: <span className="price">₹{pro.price}.00</span></h4></li>
         <li><button className="add" onClick={() => addToCart(pro)}>Add to Cart</button></li>
       </ul>
     </div>

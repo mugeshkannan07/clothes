@@ -1,5 +1,5 @@
-import React, { createContext } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import {  Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Home } from './components/Home.jsx';
 import { Allproduct } from './components/Allproduct.jsx';
@@ -19,7 +19,6 @@ import { Notfound } from './components/Notfound.jsx';
 const App = () => {
   return (
     <ProductProvider>
-      <BrowserRouter>
       <Header />
         <Routes>
           <Route path="/" element={<Home /> } />
@@ -35,7 +34,6 @@ const App = () => {
           <Route path="*" element={<Notfound /> } />
         </Routes>
         <Footer />
-      </BrowserRouter>
     </ProductProvider>
   );
 };

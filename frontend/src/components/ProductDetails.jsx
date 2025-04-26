@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+// import React, { useContext } from "react"
 // import { Link } from 'react-router-dom';
 // import '../css/productDetails.css';
 // import { FaHeart, FaStar } from 'react-icons/fa';
@@ -94,7 +94,8 @@ import React, { useContext } from "react"
 // //     </div>
 // //   );
 // // };
-/////////////////import React, { useContext } from "react";
+/////////////////
+import React, { useContext } from "react";
 import { Link } from 'react-router-dom';
 import '../css/productDetails.css';
 import { FaHeart, FaStar } from 'react-icons/fa';

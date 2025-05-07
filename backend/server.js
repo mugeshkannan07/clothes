@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // CORRECT CORS USAGE
 app.use(cors({
-  origin: "*",   
+  origin: "https://elite-wear.onrender.com", 
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));

@@ -15,7 +15,7 @@ const Categories = () => {
       <div className="allbtn">
     <div className="btn">
       <button onClick={() => setCategory("mens")}>Men</button>
-      <button onClick={() => setCategory("womens")}>Women</button>
+      <button onClick={() => setCategory("womens")}>Women</button> 
       <button onClick={() => setCategory("kids")}>Kids</button>
     </div>
       </div>

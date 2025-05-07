@@ -303,7 +303,7 @@
 
     .product_items img {
         width: 100%;
-        height: 30vh;
+        height: 20vh;
         object-fit: cover;
         border-radius: 10px;
         margin-bottom: 10px;
@@ -396,7 +396,6 @@
 
     .product_items img {
         width: 100%;
-        height: 25vh;
         object-fit: cover;
         border-radius: 10px;
     }
@@ -431,8 +430,5 @@
         margin-top: 8px;
     }
 
-    /* .product_items ul li .add,
-    .product_items ul li .remove {
-        width: 100%;
-    } */
+  
 }

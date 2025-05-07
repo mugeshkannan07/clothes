@@ -35,6 +35,9 @@ const Filter = () => {
       if (sortOrder === "rated") return b.rating - a.rating;
       return 0;
     });
+
+    
+console.log("datas:", arrivesData )
   return (
     <div className="filter">
       <div className="search">

@@ -10,6 +10,8 @@ import axios from "axios";
 const Categories = () => {
       const { setId, favorites, setFavorites, category, setCategory, addToCart, arrivesData, setArrivesData, fetchClothesCategory } = useContext(ProductContext);
 
+console.log("datas:", arrivesData )
+
   return (
     <div className="categories">
       <div className="allbtn">

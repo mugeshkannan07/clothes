@@ -106,7 +106,7 @@ export const ProductDetails = ({ pro }) => {
   const { setId, favorites, setFavorites, addToCart } = useContext(ProductContext);
 
   // Backend URL from environment OR fallback
-  const backendURL = import.meta.env.VITE_BACKEND_URL || "https://clothes-3zsy.onrender.com";
+  const backendURL = import.meta.env.VITE_BACKEND_URL || "https://clothes-backend-c3jw.onrender.com";
 
   // Proper Image URL formatting
   const formatImageUrl = (path) => {
